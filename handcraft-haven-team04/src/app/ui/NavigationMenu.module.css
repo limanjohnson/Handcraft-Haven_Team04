@@ -1,0 +1,28 @@
+.logo {
+    font-family: 'Imperial Script', cursive;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.navigation-menu-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items:center;
+    justify-content: space-between;
+    padding:1em;
+    background-color: #EAE2B7;
+}
+
+.menu-list {
+    list-style:none;
+    display:flex;
+    justify-self:center;
+}
+
+.menu-list li {
+    margin:0 2em;
+}
+
+.right-side-menu {
+    justify-self: end;
+}
