@@ -12,10 +12,11 @@ export default function NavigationMenu() {
                     <li><Link href="/">Home</Link></li>
                     <li><Link href="/products">Products</Link></li>
                     <li><Link href="/artisans">Artisans</Link></li>
+                    <li><Link href="/sellers">Sellers</Link></li>
                 </ul>
             </nav>
             <div className={styles["right-side-menu"]}>
-                <button>Login</button>
+                <button className={styles["login-button"]}>Login</button>
             </div>
         </div>
     )
