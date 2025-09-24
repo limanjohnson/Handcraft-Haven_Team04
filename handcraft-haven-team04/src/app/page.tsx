@@ -1,14 +1,49 @@
+'use client';
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useEffect, useState } from 'react';
 
 function Main({ children, className }: { children: React.ReactNode; className?: string }) {
   return <main className={className}>{children}</main>;
 }
 
 export default function Home() {
+  const [users, setUsers] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  // Cargar datos
+  useEffect(() => {
+    fetch('/api/users')
+      .then(res => res.json())
+      .then(setUsers);
+
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(setProducts);
+  }, []);
+
   return (
+
+
+
+    
     <div className={styles.page}>
-      <Main className={styles.main}>
+      {/* DATABASE TEST */}
+      <h1 className="text-2xl font-bold mb-4">Users</h1>
+      <ul>
+        {users.map((u: any) => (
+          <li key={u.id}>{u.name} - {u.email}</li>
+        ))}
+      </ul>
+
+      <h1 className="text-2xl font-bold mb-4">Products</h1>
+      <ul>
+        {products.map((u: any) => (
+          <li key={u.id}>{u.title} - {u.price}</li>
+        ))}
+      </ul>
+
+      {/* <Main className={styles.main}>
         <Image
           className={styles.logo}
           src="/next.svg"
@@ -49,7 +84,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-      </Main>
+      </Main> */}
       <footer className={styles.footer}>
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
